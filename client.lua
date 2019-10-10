@@ -40,7 +40,7 @@ function OpenSoldMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'item_sold', {
-		title    = 'Utylizacjaa',
+		title    = 'Utylizacja',
 		align    = 'center',
 		elements = elements
 	}, function(data, menu)
@@ -49,3 +49,45 @@ function OpenSoldMenu()
 		menu.close()
 	end)
 end	
+
+
+Citizen.CreateThread(function()
+	Citizen.Wait(100)
+
+	while true do
+		local ped = PlayerPedId()
+		local pedcoords = GetEntityCoords(ped)
+		local dstcheck = GetDistanceBetweenCoords(pedcoords, Config.Menu["x"], Config.Menu["y"], Config.Menu["z"], true)
+			if dstcheck <= 7.0 and PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+				text = "Utylizacja"
+				if dstcheck <= 4.0 then
+					text = "Naciśnij [~o~E~w~] aby otworzyć menu"
+					if IsControlJustPressed(0, 38) then
+						OpenSoldMenu()
+					end
+				end	
+				DrawText3Ds(Config.Menu, text, 0.4)	
+			end
+	end
+end)
+
+
+DrawText3Ds = function(coords, text, scale)
+	local x,y,z = coords.x, coords.y, coords.z
+	local onScreen, _x, _y = World3dToScreen2d(x, y, z)
+	local pX, pY, pZ = table.unpack(GetGameplayCamCoords())
+
+	SetTextScale(scale, scale)
+	SetTextFont(4)
+	SetTextProportional(1)
+	SetTextEntry("STRING")
+	SetTextCentre(1)
+	SetTextColour(255, 255, 255, 215)
+
+	AddTextComponentString(text)
+	DrawText(_x, _y)
+
+	local factor = (string.len(text)) / 370
+
+	DrawRect(_x, _y + 0.0150, 0.030 + factor, 0.025, 41, 11, 41, 100)
+end

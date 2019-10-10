@@ -10,6 +10,6 @@ Config.Item = {
 	cannabis = 200
 }
 
-Config.Marker = {
+Config.Menu = {
     vector3(460.45, -981.82, 30.69)
 },
