@@ -19,7 +19,7 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 
-function OpenSoldMenu()
+OpenSoldMenu = function()
 	ESX.UI.Menu.CloseAll()
 	local elements = {}
 	for k, v in pairs(ESX.GetPlayerData().inventory) do
