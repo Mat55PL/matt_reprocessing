@@ -14,13 +14,12 @@ AddEventHandler('matt:sellItem', function(itemName, amount)
 	end
 
 	if xItem.count < amount then
-		TriggerClientEvent('esx:showNotification', source, _U('dealer_notenough'))
+		TriggerClientEvent('esx:showNotification', source, 'Podana wartość jest zbyt duża!')
 		return
 	end
 
 	money = ESX.Math.Round(money * amount)
 	xPlayer.addMoney(money)
 	xPlayer.removeInventoryItem(xItem.name, amount)
-
-	TriggerClientEvent('esx:showNotification', source, _U('dealer_sold', amount, xItem.label, ESX.Math.GroupDigits(money)))
+	TriggerClientEvent('esx:showNotification', source, 'Zutylizowałeś '.. xItem.label.. ' ' .. amount .. 'x za ' .. money .. '$' )
 end)
