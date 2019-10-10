@@ -40,7 +40,7 @@ function OpenSoldMenu()
 	end
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'item_sold', {
-		title    = 'Utylizacja',
+		title    = 'Utylizacjaa',
 		align    = 'center',
 		elements = elements
 	}, function(data, menu)
