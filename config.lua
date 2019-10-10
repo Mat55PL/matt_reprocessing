@@ -8,8 +8,6 @@ Config.Item = {
 	seed_weed = 125,
 	handcuff = 200,
 	cannabis = 200
-}
-
-Config.Menu = {
-    vector3(460.45, -981.82, 30.69)
 },
+
+Config.Menu = { ["x"] = 452.32196044922, ["y"] = -980.03033447266, ["z"] = 30.689582824707, ["h"] = 270.0 }
