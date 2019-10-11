@@ -24,7 +24,6 @@ OpenSoldMenu = function()
 	local elements = {}
 	for k, v in pairs(ESX.GetPlayerData().inventory) do
 		local price = Config.Itemsold[v.name]
-
 		if price and v.count > 0 then
 			table.insert(elements, {
 				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('police_item', ESX.Math.GroupDigits(price))),
@@ -86,12 +85,9 @@ DrawText3Ds = function(coords, text, scale)
 	SetTextEntry("STRING")
 	SetTextCentre(1)
 	SetTextColour(255, 255, 255, 215)
-
 	AddTextComponentString(text)
 	DrawText(_x, _y)
-
 	local factor = (string.len(text)) / 370
-
 	DrawRect(_x, _y + 0.0150, 0.030 + factor, 0.025, 41, 11, 41, 100)
 end
 
@@ -99,14 +95,14 @@ end
 
 
 
---[[
 
 
-(  ____ \(  ____ )(  ____ \(  ___  )\__   __/(  ____ \(  __  \   (  ___ \ |\     /|  (       )(  ___  )\__   __/\__   __/
+
+--[[(  ____ \(  ____ )(  ____ \(  ___  )\__   __/(  ____ \(  __  \   (  ___ \ |\     /|  (       )(  ___  )\__   __/\__   __/
 | (    \/| (    )|| (    \/| (   ) |   ) (   | (    \/| (  \  )  | (   ) )( \   / )  | () () || (   ) |   ) (      ) (   
 | |      | (____)|| (__    | (___) |   | |   | (__    | |   ) |  | (__/ /  \ (_) /   | || || || (___) |   | |      | |   
 | |      |     __)|  __)   |  ___  |   | |   |  __)   | |   | |  |  __ (    \   /    | |(_)| ||  ___  |   | |      | |   
 | |      | (\ (   | (      | (   ) |   | |   | (      | |   ) |  | (  \ \    ) (     | |   | || (   ) |   | |      | |   
 | (____/\| ) \ \__| (____/\| )   ( |   | |   | (____/\| (__/  )  | )___) )   | |     | )   ( || )   ( |   | |      | |   
-(_______/|/   \__/(_______/|/     \|   )_(   (_______/(______/   |/ \___/    \_/     |/     \||/     \|   )_(      )_(   
---]]
+(_______/|/   \__/(_______/|/     \|   )_(   (_______/(______/   |/ \___/    \_/     |/     \||/     \|   )_(      )_(  --]] 
+
