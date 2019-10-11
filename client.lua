@@ -55,12 +55,14 @@ Citizen.CreateThread(function()
 	Citizen.Wait(100)
 
 	while true do
+		local sleep = 500
 		local ped = PlayerPedId()
 		local pedcoords = GetEntityCoords(ped)
 		local dstcheck = GetDistanceBetweenCoords(pedcoords, Config.Menu["x"], Config.Menu["y"], Config.Menu["z"], true)
-			if dstcheck <= 7.0 and PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+			if dstcheck <= 5.0 and PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+				sleep = 5
 				text = "Utylizacja"
-				if dstcheck <= 4.0 then
+				if dstcheck <= 1.0 then
 					text = "Naciśnij [~o~E~w~] aby otworzyć menu"
 					if IsControlJustPressed(0, 38) then
 						OpenSoldMenu()
@@ -68,6 +70,7 @@ Citizen.CreateThread(function()
 				end	
 				DrawText3Ds(Config.Menu, text, 0.4)	
 			end
+		Citizen.Wait(sleep)
 	end
 end)
 
@@ -91,3 +94,19 @@ DrawText3Ds = function(coords, text, scale)
 
 	DrawRect(_x, _y + 0.0150, 0.030 + factor, 0.025, 41, 11, 41, 100)
 end
+
+
+
+
+
+--[[
+
+
+(  ____ \(  ____ )(  ____ \(  ___  )\__   __/(  ____ \(  __  \   (  ___ \ |\     /|  (       )(  ___  )\__   __/\__   __/
+| (    \/| (    )|| (    \/| (   ) |   ) (   | (    \/| (  \  )  | (   ) )( \   / )  | () () || (   ) |   ) (      ) (   
+| |      | (____)|| (__    | (___) |   | |   | (__    | |   ) |  | (__/ /  \ (_) /   | || || || (___) |   | |      | |   
+| |      |     __)|  __)   |  ___  |   | |   |  __)   | |   | |  |  __ (    \   /    | |(_)| ||  ___  |   | |      | |   
+| |      | (\ (   | (      | (   ) |   | |   | (      | |   ) |  | (  \ \    ) (     | |   | || (   ) |   | |      | |   
+| (____/\| ) \ \__| (____/\| )   ( |   | |   | (____/\| (__/  )  | )___) )   | |     | )   ( || )   ( |   | |      | |   
+(_______/|/   \__/(_______/|/     \|   )_(   (_______/(______/   |/ \___/    \_/     |/     \||/     \|   )_(      )_(   
+--]]
