@@ -18,7 +18,6 @@ AddEventHandler('esx:setJob', function(job)
   PlayerData.job = job
 end)
 
-
 OpenSoldMenu = function()
 	ESX.UI.Menu.CloseAll()
 	local elements = {}
@@ -48,8 +47,6 @@ OpenSoldMenu = function()
 		menu.close()
 	end)
 end	
-
-
 Citizen.CreateThread(function()
 	Citizen.Wait(100)
 
@@ -72,7 +69,6 @@ Citizen.CreateThread(function()
 		Citizen.Wait(sleep)
 	end
 end)
-
 
 DrawText3Ds = function(coords, text, scale)
 	local x,y,z = coords.x, coords.y, coords.z
