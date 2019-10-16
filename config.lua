@@ -1,5 +1,8 @@
 Config                            = {}
 
+Config.Locale = 'en'
+
+--- <item> = <money>
 Config.Item = {
 	marijuana = 400,
 	phone = 250,
