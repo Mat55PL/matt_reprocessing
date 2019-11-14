@@ -2,7 +2,7 @@ Config                            = {}
 
 Config.Locale = 'en'
 
---- <item> = <money>
+--- <item from DB> = <reward>
 Config.Item = {
 	marijuana = 400,
 	phone = 250,
