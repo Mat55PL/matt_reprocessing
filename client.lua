@@ -25,7 +25,7 @@ OpenSoldMenu = function()
 		local price = Config.Itemsold[v.name]
 		if price and v.count > 0 then
 			table.insert(elements, {
-				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('police_item', ESX.Math.GroupDigits(price))),
+				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('sold_item', ESX.Math.GroupDigits(price))),
 				name = v.name,
 				price = price,
 

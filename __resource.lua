@@ -4,10 +4,14 @@ description 'Matt - reporcessing'
 
 server_scripts {
     'server.lua',
+    'locales/pl.lua',
+    'locales/en.lua',
     'config.lua'
 }
 
 client_scripts {
     'client.lua',
+    'locales/pl.lua',
+    'locales/en.lua',
     'config.lua'
 }
